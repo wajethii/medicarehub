@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdn.tailwindcss.com; style-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com https://fonts.googleapis.com; font-src 'self' https://cdnjs.cloudflare.com https://fonts.gstatic.com; img-src 'self' data:;">
+    <title>MediCareHub | Hospital Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        secondary: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            200: '#99f6e4',
+                            300: '#5eead4',
+                            400: '#2dd4bf',
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            700: '#0f766e',
+                            800: '#115e59',
+                            900: '#134e4a',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        heading: ['Montserrat', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="/src/style.css">
+</head>
+<body class="bg-gray-50">
+    <!-- Header with Strapi-managed navigation -->
+    <header class="w-full flex items-center justify-between p-4 lg:px-8 py-5 border-b sticky top-0 bg-white z-50 shadow-sm">
+        <div class="flex items-center">
+            <div class="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center mr-3">
+                <i class="fas fa-heartbeat text-white text-xl"></i>
+            </div>
+            <h1 class="text-2xl font-heading font-bold">
+                <span class="text-primary-700">Medi</span><span class="text-secondary-600">Care</span>Hub
+            </h1>
+        </div>
+      
+        <!-- Navigation from Strapi -->
+        <nav id="main-nav" class="hidden md:flex gap-6 font-medium">
+            <a href="#hero" class="px-3 py-2 rounded-lg bg-primary-50 text-primary-700">Home</a>
+            <a href="#features" class="px-3 py-2 rounded-lg hover:bg-gray-100 transition">Features</a>
+            <a href="#benefits" class="px-3 py-2 rounded-lg hover:bg-gray-100 transition">Benefits</a>
+            <a href="#pricing" class="px-3 py-2 rounded-lg hover:bg-gray-100 transition">Pricing</a>
+            <a href="#testimonials" class="px-3 py-2 rounded-lg hover:bg-gray-100 transition">Testimonials</a>
+        </nav>
+      
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="md:hidden text-gray-700" aria-label="Open menu">
+            <i class="fas fa-bars text-xl"></i>
+        </button>
+      
+        <!-- Mobile Nav -->
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-white flex flex-col items-center gap-3 py-5 shadow-md z-40">
+            <a href="#hero" class="w-full text-center py-3 bg-primary-50 text-primary-700">Home</a>
+            <a href="#features" class="w-full text-center py-3 hover:bg-gray-100 transition">Features</a>
+            <a href="#benefits" class="w-full text-center py-3 hover:bg-gray-100 transition">Benefits</a>
+            <a href="#pricing" class="w-full text-center py-3 hover:bg-gray-100 transition">Pricing</a>
+            <a href="#testimonials" class="w-full text-center py-3 hover:bg-gray-100 transition">Testimonials</a>
+            <a href="#contact" class="w-full text-center py-3 bg-primary-600 text-white font-medium mt-2">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section with Strapi-managed content -->
+    <section id="hero" class="health-gradient text-white py-16 md:py-24 px-6">
+        <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="text-center md:text-left">
+                <span class="bg-white/20 px-4 py-1 rounded-full text-sm font-medium">Now with AI-Powered Analytics</span>
+                <h1 id="hero-title" class="font-heading text-4xl md:text-5xl font-bold mt-6 mb-6 leading-tight">
+                    Transform Healthcare with Intelligent Management
+                </h1>
+                <p id="hero-subtitle" class="text-xl opacity-90 mb-8 max-w-lg mx-auto md:mx-0">
+                    MediCareHub provides a comprehensive SaaS solution for modern hospitals to streamline operations and improve patient care.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#contact" class="bg-white text-primary-700 px-8 py-4 rounded-full font-semibold shadow-lg hover:bg-gray-100 transition">Schedule a Demo</a>
+                    <a href="#features" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white/10 transition">View Features</a>
+                </div>
+            </div>
+            <div class="dashboard-preview bg-white">
+                <div class="bg-gray-800 p-3 flex items-center">
+                    <div class="flex space-x-1">
+                        <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                        <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                    </div>
+                    <div class="text-center flex-grow text-xs text-gray-400">dashboard.medicarehub.com</div>
+                </div>
+                <div class="p-4">
+                    <div class="grid grid-cols-12 gap-4">
+                        <div class="col-span-4 bg-gray-50 rounded-lg p-4">
+                            <div class="text-sm font-medium text-gray-700 mb-3">Hospital Stats</div>
+                            <div class="space-y-4">
+                                <div class="bg-white p-3 rounded-lg border">
+                                    <div class="text-gray-500 text-sm">Patients Today</div>
+                                    <div class="text-xl font-bold mt-1">124</div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border">
+                                    <div class="text-gray-500 text-sm">Appointments</div>
+                                    <div class="text-xl font-bold mt-1">64</div>
+                                </div>
+                                <div class="bg-white p-3 rounded-lg border">
+                                    <div class="text-gray-500 text-sm">Available Beds</div>
+                                    <div class="text-xl font-bold mt-1">38</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-span-8">
+                            <div class="bg-gray-50 rounded-lg p-4 h-full">
+                                <div class="flex justify-between items-center mb-4">
+                                    <div class="font-medium">Patient Activity</div>
+                                    <div class="text-primary-600 text-sm">Live</div>
+                                </div>
+                                <div class="bg-white rounded-lg p-4">
+                                    <div class="h-48 flex items-end gap-2">
+                                        <div class="w-full bg-primary-100 h-16 rounded-t"></div>
+                                        <div class="w-full bg-primary-200 h-24 rounded-t"></div>
+                                        <div class="w-full bg-primary-300 h-32 rounded-t"></div>
+                                        <div class="w-full bg-primary-400 h-40 rounded-t"></div>
+                                        <div class="w-full bg-primary-500 h-36 rounded-t"></div>
+                                        <div class="w-full bg-primary-600 h-28 rounded-t"></div>
+                                    </div>
+                                    <div class="text-center text-xs text-gray-500 mt-4">Last 6 hours</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section with Strapi-managed content -->
+    <section id="features" class="py-16 md:py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Comprehensive Hospital Management</h2>
+                <p class="text-lg text-gray-600">All the tools you need to manage your healthcare facility efficiently and deliver exceptional patient care.</p>
+            </div>
+
+            <!-- Features Grid - Loaded from Strapi -->
+            <div id="features-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Features will be loaded here -->
+                <div class="text-center p-8">
+                    <div class="flex justify-center">
+                        <div class="loading-spinner w-8 h-8 border-t-2 border-primary-600 rounded-full"></div>
+                    </div>
+                    <p class="mt-4 text-gray-600">Loading features...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-16 md:py-24 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Why Hospitals Choose MediCareHub</h2>
+                <p class="text-lg text-gray-600">Our hospital management system delivers measurable benefits that transform healthcare operations.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-xl p-8 text-center shadow-sm">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-blue-100 text-blue-600 mb-4">
+                        <i class="fas fa-user-md text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold mb-3">Enhanced Patient Care</h3>
+                    <p class="text-gray-600">Improve patient outcomes with comprehensive EHR, reduced wait times, and coordinated care across departments.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 text-center shadow-sm">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 text-green-600 mb-4">
+                        <i class="fas fa-chart-line text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold mb-3">Operational Efficiency</h3>
+                    <p class="text-gray-600">Streamline workflows, reduce paperwork, and eliminate redundant processes with our integrated platform.</p>
+                </div>
+
+                <div class="bg-white rounded-xl p-8 text-center shadow-sm">
+                    <div class="inline-flex items-center justify-center w-16 h-16 rounded-full bg-purple-100 text-purple-600 mb-4">
+                        <i class="fas fa-shield-alt text-2xl"></i>
+                    </div>
+                    <h3 class="font-heading text-xl font-semibold mb-3">HIPAA Compliance</h3>
+                    <p class="text-gray-600">Stay compliant with healthcare regulations through built-in security features and audit trails.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section with Strapi-managed content -->
+    <section id="testimonials" class="py-16 md:py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Trusted by Healthcare Professionals</h2>
+                <p class="text-lg text-gray-600">Hear from hospitals and clinics that have transformed their operations with MediCareHub.</p>
+            </div>
+
+            <div id="testimonials-container" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Testimonials will be loaded here -->
+                <div class="text-center p-8">
+                    <div class="flex justify-center">
+                        <div class="loading-spinner w-8 h-8 border-t-2 border-primary-600 rounded-full"></div>
+                    </div>
+                    <p class="mt-4 text-gray-600">Loading testimonials...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-16 md:py-24 px-6 bg-gray-50">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="font-heading text-3xl md:text-4xl font-bold mb-4">Flexible Pricing Plans</h2>
+                <p class="text-lg text-gray-600">Choose the plan that fits your healthcare facility's needs and budget.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="border rounded-xl overflow-hidden bg-white">
+                    <div class="bg-gray-50 p-6 border-b">
+                        <h3 class="font-heading text-xl font-semibold text-gray-800">Clinic</h3>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold">$199</span>
+                            <span class="text-gray-600">/month</span>
+                        </div>
+                        <p class="text-gray-600 mt-2">Ideal for small clinics</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Up to 5 users</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Patient management</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Appointment scheduling</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-times-circle text-gray-300 mt-1 mr-2"></i>
+                                <span class="text-gray-500">Laboratory module</span>
+                            </li>
+                        </ul>
+                        <button class="w-full mt-6 py-3 bg-gray-100 text-gray-800 font-medium rounded-lg hover:bg-gray-200 transition">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <div class="border-2 border-primary-500 rounded-xl overflow-hidden bg-white relative">
+                    <div class="absolute top-0 right-0 bg-primary-500 text-white text-xs font-bold px-4 py-1 rounded-bl-lg">
+                        MOST POPULAR
+                    </div>
+                    <div class="bg-primary-50 p-6 border-b border-primary-100">
+                        <h3 class="font-heading text-xl font-semibold text-primary-800">Hospital</h3>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold">$699</span>
+                            <span class="text-primary-700">/month</span>
+                        </div>
+                        <p class="text-primary-700 mt-2">Perfect for medium hospitals</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Up to 25 users</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>All Clinic features</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Laboratory module</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Pharmacy management</span>
+                            </li>
+                        </ul>
+                        <button class="w-full mt-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition">
+                            Get Started
+                        </button>
+                    </div>
+                </div>
+
+                <div class="border rounded-xl overflow-hidden bg-white">
+                    <div class="bg-gray-50 p-6 border-b">
+                        <h3 class="font-heading text-xl font-semibold text-gray-800">Enterprise</h3>
+                        <div class="mt-4">
+                            <span class="text-4xl font-bold">Custom</span>
+                        </div>
+                        <p class="text-gray-600 mt-2">For large healthcare networks</p>
+                    </div>
+                    <div class="p-6">
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Unlimited users</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>All Hospital features</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Multi-location support</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-green-500 mt-1 mr-2"></i>
+                                <span>Dedicated support</span>
+                            </li>
+                        </ul>
+                        <button class="w-full mt-6 py-3 bg-gray-100 text-gray-800 font-medium rounded-lg hover:bg-gray-200 transition">
+                            Contact Sales
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 md:py-24 px-6 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="bg-primary-50 rounded-2xl p-8 md:p-12 shadow-inner">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <div>
+                        <h2 class="font-heading text-3xl md:text-4xl font-bold mb-6">Ready to Transform Your Hospital?</h2>
+                        <p class="text-lg text-gray-700 mb-8">Schedule a personalized demo to see how MediCareHub can streamline your healthcare operations and improve patient care.</p>
+                        
+                        <div class="space-y-6">
+                            <div class="flex">
+                                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mr-4">
+                                    <i class="fas fa-phone text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-lg">Call Us</h3>
+                                    <p class="text-gray-700">+1 (800) MED-HUB</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex">
+                                <div class="w-12 h-12 rounded-full bg-white flex items-center justify-center shadow-sm mr-4">
+                                    <i class="fas fa-envelope text-primary-600"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium text-lg">Email Us</h3>
+                                    <p class="text-gray-700">info@medicarehub.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-xl p-6 shadow-md">
+                        <h3 class="font-heading text-2xl font-bold mb-6">Request a Demo</h3>
+                        <form id="demo-form" class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-gray-700 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            
+                            <div>
+                                <label for="hospital" class="block text-gray-700 mb-2">Hospital/Clinic Name</label>
+                                <input type="text" id="hospital" name="hospital" required class="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500">
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-primary-600 hover:bg-primary-700 text-white font-medium py-3 rounded-lg transition">
+                                Request Demo
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12 px-6">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <div class="flex items-center mb-4">
+                    <div class="w-10 h-10 rounded-full bg-primary-600 flex items-center justify-center mr-3">
+                        <i class="fas fa-heartbeat text-white text-xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-heading font-bold">
+                        <span class="text-primary-400">Medi</span><span class="text-secondary-400">Care</span>Hub
+                    </h3>
+                </div>
+                <p class="text-gray-400 mb-4">Intelligent hospital management solutions for modern healthcare facilities.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition" aria-label="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div>
+                <h4 class="font-heading text-lg font-semibold mb-4">Solutions</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">For Hospitals</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">For Clinics</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">For Laboratories</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">For Pharmacies</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-heading text-lg font-semibold mb-4">Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Documentation</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">API Reference</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Help Center</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Blog</a></li>
+                </ul>
+            </div>
+            
+            <div>
+                <h4 class="font-heading text-lg font-semibold mb-4">Company</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">About Us</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Careers</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Contact</a></li>
+                    <li><a href="#" class="text-gray-400 hover:text-white transition">Legal</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-500">
+            <p>&copy; 2025 MediCareHub. All rights reserved. HIPAA compliant healthcare solutions.</p>
+        </div>
+    </footer>
+
+    <script type="module" src="/src/main.js"></script>
+</body>
+</html>
